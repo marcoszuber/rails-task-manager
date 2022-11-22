@@ -1,0 +1,19 @@
+<div class="container">
+  <h1>Tasks</h1>
+  <% @tasks.each do |task| %>
+    <ul class="list-group">
+      <li class="list-group">
+        <div class="d-flex">
+          <%if task.completed == true %>
+            <input class="form-check-input me-1" type="checkbox" value="" aria-label="..." checked>
+          <% else %>
+            <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
+          <% end %>
+          <%= link_to task.title, task_path(task) %>
+          <%= link_to ">>delete task", destroy_task_path(task), data: {turbo_method: :delete, turbo_confirm: "estas seguro que deseas eliminar esta tarea?"} %>
+        </div>
+      </li>
+    </ul>
+  <% end %>
+  <%= link_to ">>new task", new_task_path %>
+</div>

@@ -1,0 +1,14 @@
+<div class="container">
+  <h1><%= @task.title %></h1>
+  <p><%= @task.details %></p>
+  <div class="d-flex">
+    <p>is it done?</p>
+    <%if @task.completed == true %>
+      <input class="form-check-input me-1" type="checkbox" value="" aria-label="..." checked>
+    <% else %>
+      <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
+    <% end %>
+  </div>
+  <%= link_to "Back to tasks", index_path %>
+  <%= link_to ">>edit task", edit_task_path %>
+</div>
